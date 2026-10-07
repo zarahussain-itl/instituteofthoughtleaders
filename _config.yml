@@ -1,0 +1,59 @@
+# Site settings for the Institute of Thought Leaders website.
+# GitHub Pages rebuilds the site automatically whenever a file in this repository changes.
+
+title: ITL
+description: Evidence-based coaching certification for corporate wellbeing.
+author: Zara Hussain
+lang: en_AU
+
+timezone: Australia/Melbourne
+
+# Website address.
+# While testing on GitHub's free address, keep these two lines as they are.
+# When the custom domain is switched on (see README), change them to:
+#   url: "https://instituteofthoughtleaders.com"
+#   baseurl: ""
+url: "https://zarahussain-itl.github.io"
+baseurl: "/instituteofthoughtleaders"
+
+# true = ask search engines not to list the site (use while prices and dates are still placeholders).
+# Change to false on launch day.
+noindex: true
+
+# Articles live at /insights/article-name/
+permalink: /insights/:title/
+
+# Paste your Formspree form address here (e.g. https://formspree.io/f/abcdwxyz) to switch on every form on the site.
+# While it is empty, forms show a message saying they are not connected yet.
+form_endpoint: ""
+
+# Article topics, in the order they appear as filters on the Insights page.
+insight_categories:
+  - For employers
+  - Coaching practice
+  - Wellbeing at work
+  - Careers in coaching
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+feed:
+  path: insights/feed.xml
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      nav: insights
+      author: Zara Hussain
+
+exclude:
+  - README.md
+  - PUBLISHING.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock

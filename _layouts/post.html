@@ -1,0 +1,52 @@
+---
+layout: default
+---
+{%- assign words = content | number_of_words -%}
+{%- assign minutes = words | divided_by: 220 | plus: 1 -%}
+{%- if page.reading_time %}{% assign minutes = page.reading_time %}{% endif -%}
+<article>
+<header style="padding: 56px 0 48px; border-bottom: 1px solid #E4DED1">
+<div style="max-width: 760px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 32px); box-sizing: border-box">
+<nav aria-label="Breadcrumb" style="font-size: 14px; color: #5C5A53; margin-bottom: 32px"><a href="{{ '/insights/' | relative_url }}">Insights</a>{% if page.category %} <span aria-hidden="true">/</span> {{ page.category }}{% endif %}</nav>
+<h1 style="margin: 0 0 20px; font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; font-size: clamp(34px, 5vw, 52px); line-height: 1.1; letter-spacing: -0.01em">{{ page.title }}</h1>
+{%- if page.summary %}
+<p style="margin: 0 0 24px; font-size: 20px; line-height: 1.6; color: #3B3A36">{{ page.summary }}</p>
+{%- endif %}
+<p style="margin: 0; font-size: 15px; color: #5C5A53">{{ page.author }} · <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time> · {{ minutes }} min read</p>
+</div>
+</header>
+{%- if page.image %}
+<div style="max-width: 1000px; margin: 40px auto 0; padding: 0 clamp(20px, 5vw, 32px); box-sizing: border-box">
+<img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: '' }}" style="width: 100%; height: auto; display: block">
+</div>
+{%- endif %}
+<div class="article-body" style="max-width: 760px; margin: 0 auto; padding: 56px clamp(20px, 5vw, 32px) 80px; box-sizing: border-box">
+{{ content }}
+</div>
+</article>
+
+{%- assign cta = site.data.related[page.related] | default: site.data.related.certifications %}
+<section style="background: #111111; color: #FAF8F3; padding: 72px 0">
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 64px); box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 28px">
+<div style="flex: 999 1 480px; min-width: 0">
+<h2 style="margin: 0 0 10px; font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; font-size: clamp(26px, 3.2vw, 36px); line-height: 1.2">{{ cta.heading }}</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #D9D4C8">{{ cta.text }}</p>
+</div>
+<a href="{{ cta.url | relative_url }}" style="display: inline-flex; align-items: center; min-height: 52px; box-sizing: border-box; padding: 0 28px; background: #C9A54E; color: #111111; font-weight: 700; font-size: 16px; text-decoration: none; border-radius: 2px">{{ cta.button }}</a>
+</div>
+</section>
+
+<section style="padding: 72px 0">
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 64px); box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 32px 64px; align-items: center">
+<div style="flex: 1 1 360px; min-width: 0">
+<h2 style="margin: 0 0 10px; font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; font-size: 30px; line-height: 1.2">Get the ITL Briefing</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #3B3A36">One useful email a month on coaching and wellbeing at work.</p>
+</div>
+<form data-form="Newsletter sign-up" style="flex: 999 1 420px; min-width: 0; display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end">
+<label style="flex: 2 1 260px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600">Email
+<input type="email" name="email" autocomplete="email" required style="min-height: 48px; padding: 0 14px; font: inherit; font-weight: 400; font-size: 16px; color: #111111; background: #FFFFFF; border: 1px solid #8A8476; border-radius: 2px; box-sizing: border-box">
+</label>
+<button type="button" style="flex: 1 1 160px; min-height: 48px; padding: 0 24px; background: #111111; color: #FAF8F3; font: inherit; font-weight: 700; font-size: 16px; border: none; border-radius: 2px; cursor: pointer">Subscribe</button>
+</form>
+</div>
+</section>

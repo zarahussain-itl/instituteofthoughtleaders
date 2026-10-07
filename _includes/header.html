@@ -1,0 +1,19 @@
+<header style="background: #111111; color: #FAF8F3">
+<div style="max-width: 1200px; margin: 0 auto; padding: 18px clamp(20px, 5vw, 64px); box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px">
+<a href="{{ '/' | relative_url }}" aria-label="Institute of Thought Leaders home" style="display: flex; flex-direction: column; align-items: flex-start; text-decoration: none; color: #FAF8F3">
+<span style="font-family: 'Source Serif 4', Georgia, serif; font-weight: 700; font-size: 30px; letter-spacing: 0.04em; line-height: 1">ITL</span>
+<span style="display: block; width: 100%; height: 2px; background: #C9A54E; margin: 5px 0 4px"></span>
+<span style="font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase">Institute of Thought Leaders</span>
+</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; font-size: 15px; font-weight: 500">
+{%- for item in site.data.nav %}
+{%- if page.nav == item.key %}
+<a href="{{ item.url | relative_url }}" aria-current="page" style="color: #C9A54E; text-decoration: none">{{ item.label }}</a>
+{%- else %}
+<a href="{{ item.url | relative_url }}" style="color: #FAF8F3; text-decoration: none">{{ item.label }}</a>
+{%- endif %}
+{%- endfor %}
+<a href="{{ '/program-preview.html' | relative_url }}" style="display: inline-flex; align-items: center; min-height: 44px; box-sizing: border-box; padding: 0 20px; background: #C9A54E; color: #111111; font-weight: 700; text-decoration: none; border-radius: 2px">Program preview</a>
+</nav>
+</div>
+</header>

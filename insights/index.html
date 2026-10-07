@@ -1,0 +1,113 @@
+---
+layout: default
+title: Insights on coaching and wellbeing at work
+description: Practical, evidence-based articles on workplace coaching, wellbeing and building internal coaching capability, for HR leaders, managers and coaches.
+nav: insights
+---
+{%- assign featured = site.posts | where: "featured", true | first -%}
+{%- unless featured %}{% assign featured = site.posts | first %}{% endunless -%}
+{%- assign pill = "display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; box-sizing: border-box; border: 1px solid #D8D1C1; background: transparent; color: #111111; font: inherit; font-size: 15px; font-weight: 600; border-radius: 999px; cursor: pointer" -%}
+<section style="background: #111111; color: #FAF8F3; padding: 72px 0 80px">
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 64px); box-sizing: border-box">
+<p style="margin: 0; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: #C9A54E">Insights</p>
+<h1 style="margin: 18px 0 20px; font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; font-size: clamp(40px, 6vw, 60px); line-height: 1.06; letter-spacing: -0.015em; max-width: 860px">Practical thinking on coaching and wellbeing at work.</h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.65; color: #D9D4C8; max-width: 680px">Articles for HR leaders, managers and coaches, from the ITL faculty.</p>
+</div>
+</section>
+
+<section style="padding: 64px 0 96px">
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 64px); box-sizing: border-box">
+<div role="group" aria-label="Filter articles by topic" id="topic-filter" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 48px">
+<button type="button" data-topic="all" aria-pressed="true" style="{{ pill }}">All</button>
+{%- for c in site.insight_categories %}
+<button type="button" data-topic="{{ c }}" aria-pressed="false" style="{{ pill }}">{{ c }}</button>
+{%- endfor %}
+</div>
+
+{%- if featured %}
+{%- assign words = featured.content | number_of_words -%}
+{%- assign minutes = words | divided_by: 220 | plus: 1 -%}
+{%- if featured.reading_time %}{% assign minutes = featured.reading_time %}{% endif %}
+<a href="{{ featured.url | relative_url }}" data-category="{{ featured.category }}" style="display: flex; flex-wrap: wrap; background: #FFFFFF; border: 1px solid #E4DED1; text-decoration: none; color: #111111; margin-bottom: 40px">
+<div style="flex: 1 1 380px; min-height: 260px; background: #111111; display: flex; align-items: flex-end; padding: 32px; box-sizing: border-box">
+<span style="font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(48px, 7vw, 88px); font-weight: 600; color: #C9A54E; line-height: 0.95">{{ featured.cover_text | default: featured.category }}</span>
+</div>
+<div style="flex: 999 1 420px; min-width: 0; padding: 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px">
+<span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: #7A5C17">Featured · {{ featured.category }} · {{ minutes }} min read</span>
+<span style="font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(28px, 3.4vw, 38px); font-weight: 600; line-height: 1.15">{{ featured.title }}</span>
+<span style="font-size: 17px; line-height: 1.65; color: #3B3A36">{{ featured.summary }}</span>
+<span style="font-weight: 700; color: #7A5C17">Read the article →</span>
+</div>
+</a>
+{%- endif %}
+
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 20px">
+{%- for post in site.posts %}
+{%- if post.url == featured.url %}{% continue %}{% endif %}
+{%- assign words = post.content | number_of_words -%}
+{%- assign minutes = words | divided_by: 220 | plus: 1 -%}
+{%- if post.reading_time %}{% assign minutes = post.reading_time %}{% endif %}
+<a href="{{ post.url | relative_url }}" data-category="{{ post.category }}" style="background: #FFFFFF; border: 1px solid #E4DED1; padding: 28px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #111111">
+<span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: #7A5C17">{{ post.category }} · {{ minutes }} min read</span>
+<span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 23px; font-weight: 600; line-height: 1.25">{{ post.title }}</span>
+<span style="font-size: 16px; line-height: 1.6; color: #3B3A36">{{ post.summary }}</span>
+<span style="font-size: 14px; color: #5C5A53">{{ post.date | date: "%-d %B %Y" }}</span>
+</a>
+{%- endfor %}
+{%- for item in site.data.upcoming %}
+<article data-category="{{ item.category }}" style="background: #F1ECE0; border: 1px dashed #D8D1C1; padding: 28px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: #7A5C17">{{ item.category }} · Coming soon</span>
+<h2 style="margin: 0; font-family: 'Source Serif 4', Georgia, serif; font-size: 23px; font-weight: 600; line-height: 1.25">{{ item.title }}</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #3B3A36">{{ item.summary }}</p>
+</article>
+{%- endfor %}
+</div>
+<p id="no-articles" hidden style="margin: 24px 0 0; font-size: 17px; color: #3B3A36">No articles on this topic yet. Subscribe below and we'll send them when they're published.</p>
+</div>
+</section>
+
+<section id="newsletter" style="background: #111111; color: #FAF8F3; padding: 88px 0">
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 64px); box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 32px 64px; align-items: center">
+<div style="flex: 1 1 380px; min-width: 0">
+<p style="margin: 0; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: #C9A54E">The ITL Briefing</p>
+<h2 style="margin: 14px 0 16px; font-family: 'Source Serif 4', Georgia, serif; font-weight: 600; font-size: clamp(28px, 3.6vw, 40px); line-height: 1.15">One useful email a month.</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.65; color: #D9D4C8">New articles, intake dates and practical tools for coaching and wellbeing at work. Unsubscribe any time. <a href="{{ '/insights/feed.xml' | relative_url }}" style="color: #C9A54E">RSS feed</a></p>
+</div>
+<form data-form="Newsletter sign-up" style="flex: 999 1 460px; min-width: 0; display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end">
+<label style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600">First name
+<input type="text" name="firstname" autocomplete="given-name" style="min-height: 48px; padding: 0 14px; font: inherit; font-weight: 400; font-size: 16px; color: #111111; background: #FAF8F3; border: 1px solid #8A8476; border-radius: 2px; box-sizing: border-box">
+</label>
+<label style="flex: 2 1 240px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600">Email
+<input type="email" name="email" autocomplete="email" required style="min-height: 48px; padding: 0 14px; font: inherit; font-weight: 400; font-size: 16px; color: #111111; background: #FAF8F3; border: 1px solid #8A8476; border-radius: 2px; box-sizing: border-box">
+</label>
+<button type="button" style="flex: 1 1 160px; min-height: 48px; padding: 0 24px; background: #C9A54E; color: #111111; font: inherit; font-weight: 700; font-size: 16px; border: none; border-radius: 2px; cursor: pointer">Subscribe</button>
+</form>
+</div>
+</section>
+
+<script>
+(function () {
+  var buttons = document.querySelectorAll('#topic-filter button');
+  var items = document.querySelectorAll('[data-category]');
+  var none = document.getElementById('no-articles');
+  items.forEach(function (el) { el.setAttribute('data-display', el.style.display || 'block'); });
+  function show(topic) {
+    var shown = 0;
+    buttons.forEach(function (b) {
+      var on = b.getAttribute('data-topic') === topic;
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      b.style.background = on ? '#111111' : 'transparent';
+      b.style.color = on ? '#FAF8F3' : '#111111';
+      b.style.borderColor = on ? '#111111' : '#D8D1C1';
+    });
+    items.forEach(function (el) {
+      var match = topic === 'all' || el.getAttribute('data-category') === topic;
+      el.style.display = match ? el.getAttribute('data-display') : 'none';
+      if (match) shown++;
+    });
+    none.hidden = shown > 0;
+  }
+  buttons.forEach(function (b) { b.addEventListener('click', function () { show(b.getAttribute('data-topic')); }); });
+  show('all');
+})();
+</script>
