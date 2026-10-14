@@ -1,10 +1,16 @@
 # Site settings for the Institute of Thought Leaders website.
 # GitHub Pages rebuilds the site automatically whenever a file in this repository changes.
 
-title: ITL
+title: Institute of Thought Leaders
 description: Evidence-based coaching certification for corporate wellbeing.
 author: Zara Hussain
 lang: en_AU
+logo: /assets/images/itl-logo.png
+social:
+  name: Institute of Thought Leaders
+  links:
+    - https://www.linkedin.com/company/institute-of-thought-leaders/
+    - https://www.facebook.com/people/Institute-of-Thought-Leaders/61566163546955/
 
 timezone: Australia/Melbourne
 
@@ -43,6 +49,10 @@ feed:
   path: insights/feed.xml
 
 defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/itl-share.png
   - scope:
       path: ""
       type: posts

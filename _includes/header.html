@@ -10,7 +10,7 @@
 {%- for item in site.data.nav %}
 <a href="{{ item.url | relative_url }}"{% if page.nav == item.key %} aria-current="page"{% endif %}>{{ item.label }}</a>
 {%- endfor %}
-<a class="nav-cta" href="{{ '/program-preview.html' | relative_url }}">Program preview</a>
+<a class="nav-cta" href="{{ '/program-preview/' | relative_url }}">Program preview</a>
 </nav>
 </div>
 </header>

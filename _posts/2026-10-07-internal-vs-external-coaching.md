@@ -1,4 +1,5 @@
 ---
+seo_title: "Internal vs External Coaching: How HR Leaders Decide | ITL"
 title: "Internal coaches or external coaching? How HR leaders can decide"
 summary: Both have a place. The question is where each one earns its cost.
 description: When to use external coaches and when to certify internal coaches. Five questions HR leaders can use to decide, and why most organisations use both.
@@ -36,4 +37,4 @@ The trade-off is upfront investment and the need for clear boundaries. Internal 
 
 In practice the answer is rarely one or the other. A common model keeps external coaches for the executive team and builds a group of certified internal coaches for managers and teams. Coaching reaches more people, and the external budget goes where independence matters most.
 
-To make the case internally, compare the yearly cost of external coaching for the people you want to reach with the cost of certifying your own coaches, and decide in advance how you'll measure the difference. Our [business case template]({{ '/business-case.html' | relative_url }}) sets out those calculations.
+To make the case internally, compare the yearly cost of external coaching for the people you want to reach with the cost of certifying your own coaches, and decide in advance how you'll measure the difference. Our [business case template]({{ '/for-employers/business-case-template/' | relative_url }}) sets out those calculations.

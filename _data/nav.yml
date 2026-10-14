@@ -1,19 +1,19 @@
 # Main menu. Edit here and every page updates.
 - key: certifications
   label: Certifications
-  url: /coaching-certifications.html
+  url: /coaching-certifications/
 - key: fees
   label: Fees & dates
-  url: /fees-and-dates.html
+  url: /fees-and-dates/
 - key: employers
   label: For employers
-  url: /for-employers.html
+  url: /for-employers/
 - key: faculty
   label: Faculty
-  url: /faculty.html
+  url: /faculty/
 - key: insights
   label: Insights
   url: /insights/
 - key: contact
   label: Contact
-  url: /contact.html
+  url: /contact/
