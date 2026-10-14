@@ -2,9 +2,9 @@
 - key: certifications
   label: Certifications
   url: /coaching-certifications/
-- key: fees
-  label: Fees & dates
-  url: /fees-and-dates/
+- key: enrolment
+  label: Enrolment
+  url: /enrolment/
 - key: employers
   label: For employers
   url: /for-employers/
